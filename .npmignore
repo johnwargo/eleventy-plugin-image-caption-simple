@@ -1,0 +1,10 @@
+# Folders
+_site/
+node_modules/
+src/
+images/
+
+# files
+.gitignore
+eleventy.config.js
+pub.cmd
