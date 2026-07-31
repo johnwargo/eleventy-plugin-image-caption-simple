@@ -1,8 +1,8 @@
 {
-  "name": "eleventy-plugin-image-caption",
+  "name": "eleventy-plugin-image-caption-simple",
   "version": "0.0.2",
   "description": "Eleventy post image caption plugin",
-  "main": "eleventy-plugin-image-caption.js",
+  "main": "eleventy-plugin-image-caption-simple.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/johnwargo/eleventy-plugin-image-caption.git"
+    "url": "git+https://github.com/johnwargo/eleventy-plugin-image-caption-simple.git"
   },
   "keywords": [
     "Eleventy",

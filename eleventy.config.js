@@ -1,4 +1,4 @@
-import imageCaptionPlugin from './eleventy-plugin-image-caption.js';
+import imageCaptionPlugin from './eleventy-plugin-image-caption-simple.js';
 
 export default async function (eleventyConfig) {
 

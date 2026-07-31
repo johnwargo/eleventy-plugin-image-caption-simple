@@ -6,7 +6,6 @@
   - [Background](#background)
   - [Examples](#examples)
   - [Limitations](#limitations)
-    - [Single Image](#single-image)
     - [Serve Mode](#serve-mode)
     - [Image Reference Position](#image-reference-position)
   - [Installation](#installation)
@@ -53,12 +52,6 @@ When you invoke the shortcode, you give it the file path pointing to the image a
 
 Before we get too deep into the technical details of the plugin, its important to note two limitations.
 
-### Single Image
-
-Resolution: Copy the image to a different/second file name if you want to do this. 
-
-My long term goal is to allow you to pass an instance parameter to the shortcode to identify which version of the you image intend to reference.
-
 ### Serve Mode
 
 When running the site included with this plugin on your local development workstation (starting the Eleventy server with the `--serve` parameter), you'll notice that the captions don't show the image number in the caption.
@@ -78,7 +71,7 @@ A page must add a caption an image using the `imageCaption` shortcode before you
 To install the plugin, open a terminal window or command prompt, navigate to an Eleventy project folder, and execute the following command:
 
 ```
-npm i eleventy-plugin-image-caption
+npm i eleventy-plugin-image-caption-simple
 ```
 
 ## Plugin Configuration

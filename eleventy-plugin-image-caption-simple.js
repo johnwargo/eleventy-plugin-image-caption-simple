@@ -1,7 +1,7 @@
 /********************************************************************
- * Image Caption shortcut
+ * Image Caption (Simple) shortcut
  * by John M. Wargo
- * Created July 21, 2026
+ * Created July 31, 2026
  * 
  * This should automatically caption all of the image files on a 
  * page. Using sequential numbers, of course.
@@ -26,32 +26,20 @@ function generateCaption(figureNumber, captionText) {
         : `<p${classStr}>${options.captionLabel} ${figureNumber}: ${captionText}</p>`;
 }
 
-function imageCaption(imagePath, captionText) {
-    console.log(`[ImageCaption] "${imagePath}"`);
-    const page = this.page.url; // get the current page URL
-    // does the page's array exist in the captions?
+function imageCaptionSimple(captionText) {
+    console.log(`[ImageCaption] "${captionText}"`);
+    // get the current page URL
+    const page = this.page.url;
+    // does the page's image count exist in the captions?
     if (!captions[page]) {
         // then make a new entry for it
-        captions[page] = [];
+        captions[page] = 0;
     }
-    // append the caption to the captions array for the current page
-    captions[page].push({ imagePath, captionText });
+    captions[page]++;
     // if we're in dev mode, just return generic text
     // to understand why, read the repo's readme file
     if (isDev) return generateCaption("#", captionText);
-    return generateCaption(captions[page].length, captionText);
-}
-
-function imageReference(imagePath) {
-    console.log(`[ImageReference] "${imagePath}"`);
-    const page = this.page.url; // get the current page URL
-
-    // Is the page in the captions array?
-    if (!captions[page]) return "Invalid Reference";
-    // does the image exist in the captions array for the current page? It should
-    const figureNumber = captions[page].findIndex(image => image.imagePath === imagePath) + 1;
-    if (figureNumber === 0) return "Unable to find caption for this image.";
-    return `${options.captionLabel} ${figureNumber}`;
+    return generateCaption(captions[page], captionText);
 }
 
 export default function (eleventyConfig, pluginOptions) {
@@ -61,8 +49,5 @@ export default function (eleventyConfig, pluginOptions) {
     classStr = options.captionClass.length > 0
         ? ` class="${options.captionClass}"`
         : "";
-
-    // Add the shortcodes
-    eleventyConfig.addLiquidShortcode('imageCaption', imageCaption);
-    eleventyConfig.addLiquidShortcode('imageReference', imageReference);
+    eleventyConfig.addLiquidShortcode('imageCaptionSimple', imageCaptionSimple);
 }
