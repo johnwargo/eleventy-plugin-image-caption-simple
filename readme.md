@@ -14,15 +14,18 @@
 
 An Eleventy (11ty) plugin that adds a simple image caption (with auto numbering) shortcode to a site. The shortcode is `imageCaptionSimple` and it returns an automatically numbered image caption like "Figure 1: A boy with a dog". It automatically assigns the image/figure number based on an image file's position on the page (top to bottom). | 
 
-See the plugin in action on the [demo site](https://eleventy-plugin-image-caption-simple.netlify.app/) included in this repository.
+**Note:** If you'd like to be able to caption images then reference the image later on a page using the caption label (Figure 1) then check out my [eleventy-plugin-image-caption
+](https://github.com/johnwargo/eleventy-plugin-image-caption) plugin instead.
 
 ## Examples
 
-This repository includes a complete Eleventy site that demonstrates the functionality exposed through the plugin; you can access the site on [Netlify](https://eleventy-plugin-image-caption.netlify.app/).
+This repository includes a complete Eleventy site that demonstrates the functionality exposed through the plugin; you can access the site on [Netlify](https://eleventy-plugin-image-caption-simple.netlify.app/).
 
-Here's an example of a simple caption added to an image using the `captionedImage` shortcode. The shortcut adds a paragraph with the text "Image 1: Dog with Flower" shown in the following figure. Its the first image in the file, so the plugin automatically numbers it with a 1.
+Here's an example of a simple caption added to an image using the `captionedImageSimple` shortcode. The shortcut adds an HTML paragraph (`<p></p>`) with the text "Image 1: Dog with Flower" shown in the following figure. 
 
 ![Example 1](/images/example-01.png)
+
+Its the first image in the file, so the plugin automatically numbers it with a 1. The second image would be captioned with Image 2, etc.
 
 That's it, that's all this plugin does. 
 
