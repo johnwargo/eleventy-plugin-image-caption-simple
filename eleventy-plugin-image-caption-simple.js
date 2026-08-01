@@ -11,43 +11,36 @@ const isDev = process.env.ELEVENTY_RUN_MODE === "serve" || process.env.ELEVENTY_
 
 const captions = [];
 
+var boldStart;
+var boldEnd;
 var classStr;
 var options = {};
 
-const defaultConfig = {
+const defaultOptions = {
     captionBold: true,
     captionClass: 'caption',
     captionLabel: 'Image'
 };
 
-function generateCaption(figureNumber, captionText) {
-    return options.captionBold
-        ? `<p${classStr}><strong>${options.captionLabel} ${figureNumber}: </strong>${captionText}</p>`
-        : `<p${classStr}>${options.captionLabel} ${figureNumber}: ${captionText}</p>`;
-}
-
 function imageCaptionSimple(captionText) {
-    console.log(`[ImageCaption] "${captionText}"`);
+    console.log(`[ImageCaptionSimple] "${captionText}"`);
     // get the current page URL
     const page = this.page.url;
     // does the page's image count exist in the captions?
-    if (!captions[page]) {
-        // then make a new entry for it
-        captions[page] = 0;
-    }
+    // then add this page count to the array
+    if (!captions[page]) captions[page] = 0;
+    // increment the array value for this page
     captions[page]++;
-    // if we're in dev mode, just return generic text
-    // to understand why, read the repo's readme file
-    if (isDev) return generateCaption("#", captionText);
-    return generateCaption(captions[page], captionText);
+    return `<p${classStr}>${boldStart}${options.captionLabel} ${captions[page]}: ${boldEnd}${captionText}</p>`
 }
 
 export default function (eleventyConfig, pluginOptions) {
     // populate the default options
-    options = { ...defaultConfig, ...pluginOptions };
+    options = { ...defaultOptions, ...pluginOptions };
+    // calculate the bold strings based on options
+    boldStart = options.captionBold ? "<strong>" : "";
+    boldEnd = options.captionBold ? "</strong>" : "";
     // calculate the class string based on options
-    classStr = options.captionClass.length > 0
-        ? ` class="${options.captionClass}"`
-        : "";
+    classStr = options.captionClass.length > 0 ? ` class="${options.captionClass}"` : "";
     eleventyConfig.addLiquidShortcode('imageCaptionSimple', imageCaptionSimple);
 }
