@@ -1,8 +1,8 @@
-# Eleventy Plugin Image Caption
+# Eleventy Plugin Image Caption Simple
 
 <!-- TOC -->
 
-- [Eleventy Plugin Image Caption](#eleventy-plugin-image-caption)
+- [Eleventy Plugin Image Caption Simple](#eleventy-plugin-image-caption-simple)
   - [Examples](#examples)
   - [Installation](#installation)
   - [Plugin Configuration](#plugin-configuration)
