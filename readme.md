@@ -1,5 +1,7 @@
 # Eleventy Plugin Image Caption Simple
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3d07ee0c-d256-4ec6-8d0b-526e3db3cc59/deploy-status)](https://app.netlify.com/projects/eleventy-plugin-image-caption-simple/deploys)
+
 <!-- TOC -->
 
 - [Eleventy Plugin Image Caption Simple](#eleventy-plugin-image-caption-simple)
